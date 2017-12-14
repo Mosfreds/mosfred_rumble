@@ -20,11 +20,10 @@ __all__ = ['MosfredRumble']
 class MosfredRumble(BaseBot):
 
     def __init__(self):
-        self._ann = None
+        self.ann = None
 
 
     def start(self):
-
         self.deserialize_ann()
 
     def move(self):
@@ -43,29 +42,29 @@ class MosfredRumble(BaseBot):
 
 
     def serialize_ann(self, path='.', base_name='mosfred_rumble'):
-        model = self._ann.to_json()
+        model = self.ann.to_json()
         with open("{}/{}.json".format(path, base_name), 'w') as json_file:
             json_file.write(model)
-        self._ann.save_weights("{}/{}.h5".format(path, base_name))
+        self.ann.save_weights("{}/{}.h5".format(path, base_name))
 
 
     def deserialize_ann(self, path='.', base_name='mosfred_rumble'):
         with open("{}/{}.json".format(path, base_name), 'r') as json_file:
-            self._ann = model_from_json(json_file.read())
-        self._ann.load_weights("{}/{}.h5".format(path, base_name))
+            self.ann = model_from_json(json_file.read())
+        self.ann.load_weights("{}/{}.h5".format(path, base_name))
 
 
     def create_ann(self):
-        self._ann = Sequential()
+        self.ann = Sequential()
         num_actions = len(VindiniumMoveSpace.get_moves())
 #        model.add(Flatten(input_shape=(1,) + gamestate.shape))
-        self._ann.add(Dense(500, input_dim=50, activation='relu'))
-        self._ann.add(Dense(500, activation='relu'))
+        self.ann.add(Dense(500, input_dim=50, activation='relu'))
+        self.ann.add(Dense(500, activation='relu'))
         # model.add(Activation('relu'))
-        self._ann.add(Dense(num_actions, activation='linear'))
+        self.ann.add(Dense(num_actions, activation='linear'))
 
     def use_ann(self):
-        self._ann.predict()
+        self.ann.predict()
 
 
     # def learn_online(self, env):
