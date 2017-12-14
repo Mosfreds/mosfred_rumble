@@ -1,11 +1,10 @@
-import random 
-  
-import gym, time
-from gym.spaces import prng
+import gym
+import random
 
 import vindinium as vin
 
 class VindiniumMoveSpace(gym.Space):
+<<<<<<< HEAD
     """
     Action Space for Vindinium Moves 
     """
@@ -22,6 +21,11 @@ class VindiniumMoveSpace(gym.Space):
 
 
      
+=======
+    """ Action Space for Vindinium Moves """
+    def __init__(self, n):
+        self.moves = ["North", "East", "South", "West", "Stay"]
+>>>>>>> 3f5f36c3f660dcd2dab17b8205068f2f2880ff50
 
     def sample(self):
         return random.choice(self.moves)

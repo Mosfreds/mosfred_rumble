@@ -6,7 +6,7 @@ from keras.layers import Dense, Activation, Flatten
 from keras.optimizers import Adam
 from keras.models import Sequential
 from keras.models import model_from_json
-from observations.action_space import VindiniumMoveSpace
+from observations import VindiniumMoveSpace
 
 from rl.agents.dqn import DQNAgent
 from rl.policy import EpsGreedyQPolicy

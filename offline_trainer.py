@@ -11,9 +11,15 @@ from vindinium.learner import LogReader
 from vindinium.observations import ObservationMap
 
 def train_savegame(ann, savegame):
-    print("Working on {}. ".format(savegame))
-    for s in LogReader(open(savegame, 'r')):
-        pprint(s)
+    print("Working on {}. ".format(savegame), end='')
+    moves = [s for s in LogReader(open(savegame, 'r'))]
+    winner = max(moves[-1].heroes, key=lambda x : x.gold)
+    print("Winner after moves {} is bot {}.".format(len(moves), winner.id))
+
+    for move in zip(moves[winner.id-1::4], moves[winner.id::4]):
+        hstate_pre = next(x for x in move[0].heroes if x.id == winner.id)
+        hstate_post = next(x for x in move[0].heroes if x.id == winner.id)
+
 
 
 def main(savegame_files):
