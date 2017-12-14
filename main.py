@@ -7,7 +7,7 @@ def main():
         key='n0e4z0dj',
         mode='training',
         n_turns=3,
-        open_browser=True
+        open_browser=False
     )
 
     url = client.run(vindinium.bots.MinerBot())
