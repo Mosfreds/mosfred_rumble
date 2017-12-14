@@ -3,10 +3,10 @@ import vindinium
 def main():
     # Create a vindinium client
     client = vindinium.Client(
-        server='http://localhost:9000',
-        key='<my key>',
+        server='http://vindinium.org/',
+        key='n0e4z0dj',
         mode='training',
-        n_turns=300,
+        n_turns=3,
         open_browser=True
     )
 
