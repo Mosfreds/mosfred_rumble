@@ -58,10 +58,11 @@ class MosfredRumble(BaseBot):
         self.ann = Sequential()
         num_actions = len(VindiniumMoveSpace.get_moves())
 #        model.add(Flatten(input_shape=(1,) + gamestate.shape))
-        self.ann.add(Dense(500, input_dim=50, activation='relu'))
+        self.ann.add(Dense(484, input_dim=484, activation='relu'))
         self.ann.add(Dense(500, activation='relu'))
         # model.add(Activation('relu'))
         self.ann.add(Dense(num_actions, activation='linear'))
+        self.ann.compile(optimizer='adam', loss=['mse'])
 
     def use_ann(self):
         self.ann.predict()

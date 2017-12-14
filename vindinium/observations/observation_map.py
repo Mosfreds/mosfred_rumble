@@ -13,19 +13,20 @@ class ObservationMap:
         self.game = game
         self.map = None
 
-    def observation_string(self):
-        if self.map is None:
-            _translate_map(self)
-        return np.array([j for i in self.map for j in i])
-        
     def _translate_map(self):
         game = self.game
         self.map = game.map
         for mine in game.mines:
             if not mine.owner is None:
-                self.map[mine.x][mine.y] = vin.TILE_MINE_1 + mine.owner - 1
+                self.map[(mine.x, mine.y)] = vin.TILE_MINE_1 + mine.owner - 1
         for hero in game.heroes:
-            self.map[hero.x][hero.y] = vin.TILE_BOT_1 + hero.id - 1 
-        #for my_mine in 
-        
-        
+            self.map[(hero.x, hero.y)] = vin.TILE_BOT_1 + hero.id - 1
+
+    def observation_string(self):
+        if self.map is None:
+            self._translate_map()
+        m = []
+        for i in range(0, self.map.size):
+            for j in range(0, self.map.size):
+                m.append(self.map[(i, j)])
+        return m
