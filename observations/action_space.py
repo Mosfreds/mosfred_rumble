@@ -23,3 +23,6 @@ class VindiniumMoveSpace(gym.Space):
         return self.moves
     def __eq__(self, other):
         return self.moves == other.moves
+
+    def get_moves(self):
+        return self.moves
