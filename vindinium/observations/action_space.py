@@ -16,6 +16,10 @@ class VindiniumMoveSpace(gym.Space):
     def contains(self, x):
         return x in self.moves
 
+    @staticmethod
+    def get_moves():
+        return VindiniumMoveSpace.moves
+
     @property
     def shape(self):
         return ()
