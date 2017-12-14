@@ -41,6 +41,7 @@ class MosfredRumble(BaseBot):
             json_file.write(model)
         self._ann.save_weights("{}/{}.h5".format(path, base_name))
 
+
     def deserialize_ann(self, path='.', base_name='mosfred_rumble'):
         with open("{}/{}.json".format(path, base_name), 'r') as json_file:
             _ann = model_from_json(json_file.read())

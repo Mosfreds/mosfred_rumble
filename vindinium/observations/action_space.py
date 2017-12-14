@@ -7,7 +7,8 @@ class VindiniumMoveSpace(gym.Space):
     """
     Action Space for Vindinium Moves 
     """
-    moves = ["North", "East", "South", "West", "Stay"]
+    def __init__(self, n):
+        self.moves = ["North", "East", "South", "West", "Stay"]
 
     def sample(self):
         return random.choice(self.moves)
