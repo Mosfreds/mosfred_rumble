@@ -15,6 +15,7 @@ class LogReader:
             raise StopIteration
         while not l.startswith("data: "):
            l = self._file.readline()
+           if not l:
+               raise StopIteration
         state = {'game':json.loads(l[6:])}
         return game.Game(state)
-

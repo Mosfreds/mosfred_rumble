@@ -9,7 +9,6 @@ class MinimaxBot(BaseBot):
     '''Minimax bot.'''
     
     search = None
-
     def start(self):
         self.search = Minimax(self.game, 8)
 
