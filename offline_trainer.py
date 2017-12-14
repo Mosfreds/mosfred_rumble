@@ -8,6 +8,7 @@ from pprint import pprint
 from vindinium.bots import MosfredRumble
 from vindinium.learner import LogReader
 
+from vindinium.observations import ObservationMap
 
 def train_savegame(ann, savegame):
     print("Working on {}. ".format(savegame), end='')

@@ -24,13 +24,20 @@ class MosfredRumble(BaseBot):
 
 
     def start(self):
+
         self.deserialize_ann()
 
     def move(self):
         pass
 
     def _end(self):
-        #update neural network
+        '''
+        get game-id by self.game.id
+        download game file
+        read game file
+        update neural network by learning the new game file
+        save neural network by calling serialize_ann
+        '''
         pass
 
 

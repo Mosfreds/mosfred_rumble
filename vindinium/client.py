@@ -144,7 +144,7 @@ class Client(object):
         Raises:
             IOError if connection is aborted.
         '''
-
+        # What typi is r???
         r = self.__session.post(url, {'dir':action}, timeout=self.timeout_move)
 
         if r.status_code == 200:
