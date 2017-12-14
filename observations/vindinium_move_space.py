@@ -10,10 +10,14 @@ class VindiniumMoveSpace(gym.Space):
     moves = ["North", "East", "South", "West", "Stay"]
 
     def sample(self):
-        return random.choice(self.moves)
+        return random.choice(VindiniumMoveSpace.moves)
     
     def contains(self, x):
         return x in self.moves
+
+    @staticmethod
+    def get_moves():
+        return VindiniumMoveSpace.moves
 
     @property
     def shape(self):
